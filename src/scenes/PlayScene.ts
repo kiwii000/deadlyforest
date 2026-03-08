@@ -67,13 +67,14 @@ export class PlayScene extends Phaser.Scene {
     super('Play');
   }
 
-  create(data: { seed: string; slot: number; load: boolean }): void {
-    this.seed = data.seed;
-    this.slot = data.slot;
+  create(data?: { seed: string; slot: number; load: boolean }): void {
+    const startData = data ?? { seed: `${Date.now()}`, slot: 1, load: false };
+    this.seed = startData.seed;
+    this.slot = startData.slot;
     this.cameras.main.setBounds(0, 0, WORLD_WIDTH * TILE_SIZE, WORLD_HEIGHT * TILE_SIZE);
     this.physics.world.setBounds(0, 0, WORLD_WIDTH * TILE_SIZE, WORLD_HEIGHT * TILE_SIZE);
 
-    if (data.load) {
+    if (startData.load) {
       const loaded = loadSlot(this.slot);
       if (loaded) this.loadFromSave(loaded);
       else this.newWorld();
