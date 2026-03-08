@@ -9,6 +9,12 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
   parent: 'app',
   width: GAME_WIDTH,
   height: GAME_HEIGHT,
+  physics: {
+    default: 'arcade',
+    arcade: {
+      debug: false
+    }
+  },
   backgroundColor: '#101015',
   scene: [MainMenuScene, PlayScene, GameOverScene],
   pixelArt: true
