@@ -84,6 +84,19 @@ export class PlayScene extends Phaser.Scene {
     this.cursors = this.input.keyboard!.createCursorKeys();
     this.keys = this.input.keyboard!.addKeys('W,A,S,D,E,F,I,C,SPACE,P,ONE,TWO') as Record<string, Phaser.Input.Keyboard.Key>;
     this.hud = new Hud(this);
+    const menuButton = this.add
+      .text(GAME_WIDTH - 20, 20, 'Menu', {
+        fontFamily: 'monospace',
+        fontSize: '16px',
+        color: '#ffffff',
+        backgroundColor: '#000000aa',
+        padding: { x: 8, y: 4 }
+      })
+      .setOrigin(1, 0)
+      .setScrollFactor(0)
+      .setDepth(1000)
+      .setInteractive({ useHandCursor: true });
+    menuButton.on('pointerdown', () => this.scene.start('MainMenu'));
     this.cameras.main.startFollow(this.player, true, 0.08, 0.08);
 
     eventBus.on('PlayerDied', () => this.scene.start('GameOver', { reason: 'You succumbed to the wild.' }));
