@@ -1,0 +1,15 @@
+export const GAME_WIDTH = 1024;
+export const GAME_HEIGHT = 640;
+export const TILE_SIZE = 32;
+export const WORLD_WIDTH = 48;
+export const WORLD_HEIGHT = 48;
+export const PLAYER_SPEED = 130;
+export const INTERACT_RANGE = 44;
+export const PICKUP_RANGE = 32;
+export const DAY_LENGTH = 180;
+export const DUSK_LENGTH = 75;
+export const NIGHT_LENGTH = 120;
+export const AUTOSAVE_INTERVAL = 30;
+export const INVULNERABILITY_SECONDS = 0.5;
+export const ENEMY_SPAWN_INTERVAL = 20;
+export const MAX_LIGHT_RADIUS = 120;
